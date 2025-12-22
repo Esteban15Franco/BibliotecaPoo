@@ -7,9 +7,10 @@ public class Book {
     private int id;
     private static int lastId;
 
-    public Book(String bookName, String autor){
+    public Book(String bookName, String autor, Gender gender){
         this.id = ++lastId;
         this.bookName = bookName;
+        this.gender = gender;
         this.autor = autor;
     }
 
