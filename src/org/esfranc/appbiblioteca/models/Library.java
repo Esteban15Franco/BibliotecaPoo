@@ -23,6 +23,7 @@ public class Library {
         for (int i = 0; i < customers.length; i++){
             auxCustomer[i] = customers[i];
         }
+
         auxCustomer[auxCustomer.length-1] = customer;
         customers = auxCustomer;
     }
