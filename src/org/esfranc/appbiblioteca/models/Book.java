@@ -6,12 +6,21 @@ public class Book {
     private Gender gender;
     private int id;
     private static int lastId;
+    private State state = State.DEVUELTO;
 
     public Book(String bookName, String autor, Gender gender){
         this.id = ++lastId;
         this.bookName = bookName;
         this.gender = gender;
         this.autor = autor;
+    }
+
+    public State getState(){
+        return state;
+    }
+
+    public void setState(State state){
+        this.state = state;
     }
 
     public String getBookName() {
@@ -37,6 +46,19 @@ public class Book {
     public void setGender(Gender gender) {
         this.gender = gender;
     }
+
+    public boolean lendBook(Book book, Customer customer){
+        if (book.getState() == State.PRESTADO){
+            return false;
+        } else if (customer.getBook() != null) {
+            return false;
+
+        }
+        customer.setBook(book);
+        book.setState(State.PRESTADO);
+        return true;
+    }
+
 
 
 }

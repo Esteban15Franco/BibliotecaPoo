@@ -10,6 +10,14 @@ public class Customer {
         this.nie = nie;
     }
 
+    public Book getBook(){
+        return book;
+    }
+
+    public void setBook(Book book){
+        this.book = book;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -25,6 +33,5 @@ public class Customer {
     public String getNie(){
         return this.nie;
     }
-
 
 }

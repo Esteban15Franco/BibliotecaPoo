@@ -6,7 +6,6 @@ public class Library {
     private Book[] books = new Book[0];
     private Customer[] customers = new Customer[0];
     private Date date;
-    private State state;
 
     public Library(){
         this.date = new Date();
@@ -31,14 +30,6 @@ public class Library {
         auxCustomer[auxCustomer.length-1] = customer;
         customers = auxCustomer;
     }
-
-    public String validateBookStatus(Book book){
-        if(state == State.PRESTADO){
-            return  "el libro no esta disponible";
-        }
-        else return "Libro disponible";
-    }
-
 
 
 }
