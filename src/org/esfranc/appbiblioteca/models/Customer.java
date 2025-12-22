@@ -3,6 +3,7 @@ package org.esfranc.appbiblioteca.models;
 public class Customer {
     private String name;
     private String nie;
+    private Book book;
 
     public Customer(String name, String nie){
         this.name = name;
@@ -24,4 +25,6 @@ public class Customer {
     public String getNie(){
         return this.nie;
     }
+
+
 }

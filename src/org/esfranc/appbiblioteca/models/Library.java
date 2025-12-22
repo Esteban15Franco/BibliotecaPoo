@@ -8,6 +8,10 @@ public class Library {
     private Date date;
     private State state;
 
+    public Library(){
+        this.date = new Date();
+    }
+
 
     public void addBooks(Book book){
         Book[] auxBook = new Book[books.length +1];
@@ -27,6 +31,14 @@ public class Library {
         auxCustomer[auxCustomer.length-1] = customer;
         customers = auxCustomer;
     }
+
+    public String validateBookStatus(Book book){
+        if(state == State.PRESTADO){
+            return  "el libro no esta disponible";
+        }
+        else return "Libro disponible";
+    }
+
 
 
 }
