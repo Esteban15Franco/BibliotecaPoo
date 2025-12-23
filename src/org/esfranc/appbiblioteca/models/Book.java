@@ -47,17 +47,6 @@ public class Book {
         this.gender = gender;
     }
 
-    public boolean lendBook(Book book, Customer customer){
-        if (book.getState() == State.PRESTADO){
-            return false;
-        } else if (customer.getBook() != null) {
-            return false;
-
-        }
-        customer.setBook(book);
-        book.setState(State.PRESTADO);
-        return true;
-    }
 
 
 
