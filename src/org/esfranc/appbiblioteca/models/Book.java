@@ -8,11 +8,9 @@ public class Book {
     private static int lastId;
     private State state = State.DEVUELTO;
 
-    public Book(String bookName, String autor, Gender gender){
+    public Book(){
         this.id = ++lastId;
-        this.bookName = bookName;
-        this.gender = gender;
-        this.autor = autor;
+
     }
 
     public State getState(){

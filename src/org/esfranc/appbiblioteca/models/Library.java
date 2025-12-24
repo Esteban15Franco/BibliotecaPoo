@@ -8,7 +8,6 @@ public class Library {
     private Date date;
 
     public Library(){
-        this.date = new Date();
     }
 
 
