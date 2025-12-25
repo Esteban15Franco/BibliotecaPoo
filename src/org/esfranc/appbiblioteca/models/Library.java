@@ -10,7 +10,6 @@ public class Library {
     public Library(){
     }
 
-
     public void addBooks(Book book){
         Book[] auxBook = new Book[books.length +1];
         for (int i = 0; i < books.length; i++){
@@ -49,6 +48,25 @@ public class Library {
         customer.getBook().setState(State.DEVUELTO);
         customer.setBook(null);
         return true;
+    }
+
+    public String ExistCustomerByNie(String nie){
+        StringBuilder sb = new StringBuilder();
+        for (Customer c : customers){
+            if (nie.equals(c.getNie())){
+                sb.append("Nombre: ")
+                        .append(c.getName());
+
+                if (c.getBook() == null){
+                    sb.append("\nNo posee ningun libro");
+                }else {
+                    sb.append("\ntiene un libro");
+                }
+                return sb.toString();
+
+            }
+        }
+        return "No existe el cliente";
     }
 
 
