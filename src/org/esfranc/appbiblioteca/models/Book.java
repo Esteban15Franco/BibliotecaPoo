@@ -3,7 +3,6 @@ package org.esfranc.appbiblioteca.models;
 public class Book {
     private String bookName;
     private String autor;
-    private Gender gender;
     private int id;
     private static int lastId;
     private State state = State.DEVUELTO;
@@ -11,6 +10,10 @@ public class Book {
     public Book(){
         this.id = ++lastId;
 
+    }
+
+    public int getId() {
+        return id;
     }
 
     public State getState(){
@@ -37,15 +40,13 @@ public class Book {
         this.autor = autor;
     }
 
-    public Gender getGender() {
-        return gender;
+    @Override
+    public String toString(){
+        return id +
+                "\t\t"+
+                bookName+
+                "\t\t" +
+                autor;
     }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
-
-
 
 }

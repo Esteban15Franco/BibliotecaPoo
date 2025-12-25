@@ -5,7 +5,6 @@ import java.util.Date;
 public class Library {
     private Book[] books = new Book[0];
     private Customer[] customers = new Customer[0];
-    private Date date;
 
     public Library(){
     }
@@ -29,15 +28,35 @@ public class Library {
         customers = auxCustomer;
     }
 
-    public boolean lendBook(Book book, Customer customer){
-        if (book.getState() == State.PRESTADO){
-            return false;
-        } else if (customer.getBook() != null) {
-            return false;
-
+    public Customer existCustomerByNie(String nie){
+        for (Customer c : customers){
+            if (nie.equals(c.getNie())){
+                return c;
+            }
         }
-        customer.setBook(book);
-        book.setState(State.PRESTADO);
+        return null;
+    }
+
+    public Book existBookById(int id){
+        for (Book b : books){
+            if (id == b.getId()){
+                return b;
+            }
+        }
+        return null;
+    }
+
+    public boolean lendBook(int id, String nie){
+        Customer c = existCustomerByNie(nie);
+        Book b = existBookById(id);
+        if (c == null || b == null){
+            return false;
+        }
+        if (c.getBook() != null || b.getState() != State.DEVUELTO){
+            return false;
+        }
+        c.setBook(b);
+        b.setState(State.PRESTADO);
         return true;
     }
 
@@ -50,35 +69,49 @@ public class Library {
         return true;
     }
 
-    public Customer existCustomerByNie(String nie){
-        for (Customer c : customers){
-            if (nie.equals(c.getNie())){
-                return c;
-            }
-        }
-        return null;
-    }
-
-    public boolean customerHasBook(String nie){
-        return existCustomerByNie(nie).getBook() != null;
-    }
-
     public String showCustomerDetails(String nie){
+        Customer c = existCustomerByNie(nie);
+
+        if (c == null){
+            return "Usuario no encontrado";
+        }
+
         StringBuilder sb = new StringBuilder();
-        if (customerHasBook(nie)){
-            sb.append("Nombre: ")
-                    .append(existCustomerByNie(nie).getName())
-                    .append("\nYa posee un libro");
-            return sb.toString();
+        sb.append("Nombre: ").append(c.getName()).append("\n");
+
+        if (c.getBook() != null){
+            sb.append("Ya posee un libro");
+        } else {
+            sb.append("No tiene ningún libro");
         }
-        if (!customerHasBook(nie)){
-            sb.append("Nombre: ")
-                    .append(existCustomerByNie(nie).getName())
-                    .append("\nNo tiene ningún libro");
-            return sb.toString();
-        }
-        return "Usuario no encontrado";
+
+        return sb.toString();
     }
 
+    public String showBooks(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("ID")
+                .append("\t\t\t\t")
+                .append("Nombre")
+                .append("\t\t\t\t")
+                .append("Autor\n");
+        for (Book b : books){
+            sb.append(b)
+                    .append("\n");
+        }
+        return sb.toString();
+    }
+
+    public String showCustomers(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Nombre")
+                .append("\t\t\t\t")
+                .append("Nie\n");
+        for (Customer c : customers){
+            sb.append(c)
+                    .append("\n");
+        }
+        return sb.toString();
+    }
 
 }

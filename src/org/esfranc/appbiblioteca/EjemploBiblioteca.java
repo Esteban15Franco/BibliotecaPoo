@@ -49,12 +49,25 @@ public class EjemploBiblioteca {
                 }
                 case 3 ->{
                     System.out.print("Ingrese el NIE del usuario: ");
-                    System.out.println(library.existCustomerByNie(s.next()));
+                    System.out.println(library.showCustomerDetails(s.nextLine()));
+
 
                 }
                 case 4 ->{
                     System.out.println("Lista de libros: ");
+                    System.out.println(library.showBooks());
 
+                }
+                case 5->{
+                    System.out.println("Lista de clientes: ");
+                    System.out.println(library.showCustomers());
+                }
+                case 6->{
+                    System.out.print("Ingrese el id del libro a prestar: ");
+                    int id = s.nextInt();
+                    System.out.print("Ingrese el nie de la persona que recibira el libro: ");
+                    String nie = s.next();
+                    library.lendBook(id, nie);
                 }
 
             }

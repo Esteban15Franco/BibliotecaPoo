@@ -32,4 +32,11 @@ public class Customer {
         return this.nie;
     }
 
+    @Override
+    public String toString(){
+        return name +
+                "\t\t"+
+                nie;
+    }
+
 }
