@@ -49,7 +49,7 @@ public class EjemploBiblioteca {
                 }
                 case 3 ->{
                     System.out.print("Ingrese el NIE del usuario: ");
-                    System.out.println(library.ExistCustomerByNie(s.next()));
+                    System.out.println(library.existCustomerByNie(s.next()));
 
                 }
                 case 4 ->{

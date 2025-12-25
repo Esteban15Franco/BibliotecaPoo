@@ -50,23 +50,34 @@ public class Library {
         return true;
     }
 
-    public String ExistCustomerByNie(String nie){
-        StringBuilder sb = new StringBuilder();
+    public Customer existCustomerByNie(String nie){
         for (Customer c : customers){
             if (nie.equals(c.getNie())){
-                sb.append("Nombre: ")
-                        .append(c.getName());
-
-                if (c.getBook() == null){
-                    sb.append("\nNo posee ningun libro");
-                }else {
-                    sb.append("\ntiene un libro");
-                }
-                return sb.toString();
-
+                return c;
             }
         }
-        return "No existe el cliente";
+        return null;
+    }
+
+    public boolean customerHasBook(String nie){
+        return existCustomerByNie(nie).getBook() != null;
+    }
+
+    public String showCustomerDetails(String nie){
+        StringBuilder sb = new StringBuilder();
+        if (customerHasBook(nie)){
+            sb.append("Nombre: ")
+                    .append(existCustomerByNie(nie).getName())
+                    .append("\nYa posee un libro");
+            return sb.toString();
+        }
+        if (!customerHasBook(nie)){
+            sb.append("Nombre: ")
+                    .append(existCustomerByNie(nie).getName())
+                    .append("\nNo tiene ningún libro");
+            return sb.toString();
+        }
+        return "Usuario no encontrado";
     }
 
 
