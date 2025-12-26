@@ -1,7 +1,5 @@
 package org.esfranc.appbiblioteca.models;
 
-import java.util.Date;
-
 public class Library {
     private Book[] books = new Book[0];
     private Customer[] customers = new Customer[0];

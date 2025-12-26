@@ -32,10 +32,6 @@ public class Book {
         this.bookName = bookName;
     }
 
-    public String getAutor() {
-        return autor;
-    }
-
     public void setAutor(String autor) {
         this.autor = autor;
     }
