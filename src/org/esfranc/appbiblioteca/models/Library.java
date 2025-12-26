@@ -60,12 +60,13 @@ public class Library {
         return true;
     }
 
-    public boolean returnBook(Customer customer){
-        if (customer.getBook() == null){
+    public boolean returnBook(String nie){
+        Customer c = existCustomerByNie(nie);
+        if (c == null || c.getBook() == null){
             return false;
         }
-        customer.getBook().setState(State.DEVUELTO);
-        customer.setBook(null);
+        c.getBook().setState(State.DEVUELTO);
+        c.setBook(null);
         return true;
     }
 

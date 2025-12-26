@@ -21,6 +21,7 @@ public class EjemploBiblioteca {
             System.out.println("[4] Mostrar libros");
             System.out.println("[5] Mostrar usuarios");
             System.out.println("[6] Prestar libro");
+            System.out.println("[7] Devolver libro");
             System.out.println("[0] Salir");
             System.out.println("--------------------------------------");
             System.out.print("Elija una opcion: ");
