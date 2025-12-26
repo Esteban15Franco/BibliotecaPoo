@@ -3,7 +3,7 @@ package org.esfranc.appbiblioteca.models;
 public class Book {
     private String bookName;
     private String autor;
-    private int id;
+    private final int id;
     private static int lastId;
     private State state = State.DEVUELTO;
 
