@@ -70,6 +70,14 @@ public class EjemploBiblioteca {
                     String nie = s.next();
                     library.lendBook(id, nie);
                 }
+                case 7->{
+                    System.out.print("Ingrese el Nie de la persona que devolvera el libro: ");
+                    if (library.returnBook(s.nextLine())){
+                        System.out.println("Libro devuelto");
+                    }
+                    else System.out.println("No hay libro para devolver");
+
+                }
 
             }
 
